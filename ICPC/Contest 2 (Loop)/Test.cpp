@@ -1,31 +1,33 @@
 #include <iostream>
+#include <algorithm> // for std::min and std::max
 using namespace std;
 
 int main() {
-    int n;
+    int N, M;
 
-    // Input upper limit
-    cout << "Enter the value of n: ";
-    cin >> n;
+    while (true) {
+        // Read two integers N and M
+        cin >> N >> M;
 
-    // Outer loop to check each number from 2 to n
-    for (int num = 2; num <= n; num++) {
-        bool isPrime = true;
-
-        // Inner loop to check if num is divisible by any number from 2 to sqrt(num)
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                isPrime = false;
-                break; // Exit inner loop if num is not prime
-            }
+        // Check termination condition
+        if (N <= 0 || M <= 0) {
+            break;
         }
 
-        // Print num if it is prime
-        if (isPrime) {
-            cout << num << " ";
+        // Ensure N is the smaller and M is the larger number
+        int start = min(N, M);
+        int end = max(N, M);
+
+        int sum = 0;
+        // Print numbers and calculate their sum
+        for (int i = start; i <= end; ++i) {
+            cout << i << " ";
+            sum += i;
         }
+
+        // Print the sum
+        cout << "sum =" << sum << endl;
     }
 
-    cout << endl;
     return 0;
 }
