@@ -1,16 +1,16 @@
 #include<iostream>
-#include<algorithm>
 using namespace std;
-
+ 
 int main()
 {
-    int a,b,c;
-    cin>>a>>b>>c;
-    int sorter[] = {a,b,c};
-    sort(sorter, sorter+3);
-    for(int i=0; i<3; i++){
-        cout<<sorter[i]<<endl;
-    }
-    cout<<endl<<a<<endl<<b<<endl<<c<<endl;
+    long long a,b,c,d,last_2digit;
+    cin>>a>>b>>c>>d;
+    a=a%10;
+    b=b%10;
+    c=c%10;
+    d=d%10;
+    last_2digit =  (a*b*c*d)%100;
+    if(last_2digit==0) cout<<"00";
+    else cout<<last_2digit;
     return 0;
 }

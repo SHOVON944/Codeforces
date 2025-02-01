@@ -3,10 +3,15 @@ using namespace std;
  
 int main()
 {
-    long long A,B,C,D,multiple,last_2digit;
-    cin>>A>>B>>C>>D;
-    multiple = A*B*C*D;
-    last_2digit = multiple%100;
-    cout<<last_2digit;
+    long long a,b,c,d;
+    cin>>a>>b>>c>>d;
+    a=a%100;
+    b=b%100;
+    c=c%100;
+    d=d%100;
+    long long multiple_2_number=a*b*c*d;
+    multiple_2_number=multiple_2_number%100;
+    if(multiple_2_number<10) cout<<"0"<<multiple_2_number;
+    else cout<<multiple_2_number;
     return 0;
 }
