@@ -7,24 +7,19 @@ int main()
 {
     string first,second;
     cin>>first>>second;
-    int sum1 = 0;
-    int sum2 = 0;
-    for(char &ch : first){
-        ch = tolower(ch);
-    }
-    for(char &ch : second){
-        ch = tolower(ch);
-    }
+    int size = first.size();
+    for(int i=0; i<size; i++){
+        char c1 = tolower(first[i]);
+        char c2 = tolower(second[i]);
 
-    for(int sum_digit : first){
-        sum1 = sum1 + sum_digit;
+        if(c1>c2){
+            cout<<"1";
+            return 0;
+        } else if(c1<c2){
+            cout<<"-1";
+            return 0;
+        }
     }
-    for(int sum_digit : second){
-        sum2 = sum2 + sum_digit;
-    }
-    if(sum1>sum2) cout<<"1";
-    else if(sum1<sum2) cout<<"-1";
-    else cout<<"0";
-
+    cout<<"0";
     return 0;
 }
