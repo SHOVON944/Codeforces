@@ -1,4 +1,3 @@
-//A. Codeforces Checking
 #include<bits/stdc++.h>
 using namespace std;
 
