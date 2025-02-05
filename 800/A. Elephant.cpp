@@ -8,6 +8,6 @@ int main()
     long long steps;
     steps =n/5;
     if(n%5!=0) steps++;
-    cout<<steps;
+    cout<< steps;
     return 0;
 }
