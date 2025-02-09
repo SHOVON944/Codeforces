@@ -1,33 +1,45 @@
-#include <iostream>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> arrays(n, vector<int>(m));
+    vector<ll> totalSum(n, 0);
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> arrays[i][j];
+        }
+        sort(arrays[i].begin(), arrays[i].end()); // Sort each array in increasing order
+        for (int j = 0; j < m; j++) {
+            totalSum[i] += arrays[i][j];
+        }
+    }
+    
+    // Sort arrays based on their total sum in increasing order
+    sort(totalSum.begin(), totalSum.end());
+    
+    ll maxScore = 0, prefixSum = 0;
+    for (int i = 0; i < n; i++) {
+        prefixSum += totalSum[i];
+        maxScore += prefixSum;
+    }
+    
+    cout << maxScore << "\n";
+}
+
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
-        string s;
-        cin >> s;
-        int x = 0, y = 0;
-        bool passed_candy = false;
-        for (char ch : s) {
-            if (ch == 'R') x++;
-            if (ch == 'L') x--;
-            if (ch == 'U') y++;
-            if (ch == 'D') y--;
-            if (x == 1 && y == 1) {
-                passed_candy = true;
-                break; // No need to continue checking once we've found the candy
-            }
-        }
-        if (passed_candy) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
-        }
+        solve();
     }
+    
     return 0;
 }
