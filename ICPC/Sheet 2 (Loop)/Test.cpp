@@ -1,16 +1,26 @@
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    long long n;
-    cin >> n;
-    string digit;
-    cin >> digit;
-    long long sum = 0;
-    for (char store : digit){
-        sum += (store - '0'); 
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--){
+        int a;
+        cin>>a;
+        string s;
+        cin>>s;
+        int ans = 0;
+        for (int i=1; i<a; i++){
+            if (s[i]!=s[i-1]){
+                ans++;
+            }
+        }
+        if (s[0]=='1'){
+            ans++;
+        }
+        cout<<ans<<endl;
     }
-    cout << sum << endl;
+
     return 0;
 }
