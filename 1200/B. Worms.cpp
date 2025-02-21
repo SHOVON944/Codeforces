@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 int main()
 {                                           // condition : 1st piles -> 1 to a1...2nd piles -> a1+1 to a1+a2......3rd piles -> a1+a2+1 to a1+a2+a3 and so on
     int n;
