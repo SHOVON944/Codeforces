@@ -1,14 +1,32 @@
-#include<iostream>
-#include<vector>
-#include<iterator>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    vector<int>spell((istream_iterator<int>(cin)),istream_iterator<int>());
-    for(int checker : spell){
-        if(checker=='T') cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+    int t;
+    cin >> t;
+    
+    
+    string correct;
+    correct = "Timur";
+    sort(correct.begin(), correct.end());
+    
+    while(t--){
+        int n;
+        string name;
+        cin >> n;
+        cin >> name;
+        
+        if(n!=5){
+            cout << "NO" << endl;            // Timur -> 5 character...
+            continue;
+        }
+        
+        sort(name.begin(), name.end());
+        
+        if(correct == name) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+    
     return 0;
 }
