@@ -3,19 +3,14 @@ using namespace std;
 
 int main()
 {
-    string bg;
-    int n,t;
-    cin>>n>>t>>bg;
-    while(t--){
-        for(int i=0; i<n; ){
-            if(bg[i]=='B'  &&  bg[i+1]=='G'){
-                swap(bg[i], bg[i+1]);
-                i++;
-            }
-            i++;
+    int n;
+    cin>>n;
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=n; j++){
+            cout<<"*";
         }
+        cout<<endl;
     }
-    cout<<bg<<endl;
 
     return 0;
 }
