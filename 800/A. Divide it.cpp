@@ -10,7 +10,7 @@ int main()
         cin>>n;
         int moves =0;
         while(n>1){
-            if((n%2==0)  ||  (n%3==0)  ||  (n%5==0)){           // for not divided number
+            if((n%2!=0)  ||  (n%3!=0)  ||  (n%5!=0)){           // for not divided number
                 cout<<"-1"<<endl;
                 return 0;
             }
