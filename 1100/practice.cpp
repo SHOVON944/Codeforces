@@ -1,18 +1,55 @@
-#include<bits/stdc++.h>
-using namespace std; 
- 
- 
- 
-int main() {
+#include <iostream>
+#include <string>
 
-   long long ar[3];
-   cin>>ar[0]>>ar[1]>>ar[2];
- 
-   sort(ar, ar+3);
- 
-   cout<<min(ar[0]+ar[1], (ar[0]+ar[1]+ar[2])/3)<<"\n";
- 
- 
- 
-   return 0;
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, x;
+        long long k;
+        cin >> n >> x >> k;
+        string s;
+        cin >> s;
+
+        long long count = 0;
+        int pos = x;
+        long long time = 0;
+
+        while (time < k) {
+            if (pos == 0) {
+                count++;
+                break;
+            }
+
+            if (time % n == 0 && time != 0) {
+                break;
+            }
+
+            char cmd = s[time % n];
+            if (cmd == 'L') {
+                pos--;
+            } else if (cmd == 'R') {
+                pos++;
+            }
+
+            time++;
+        }
+
+        if (pos == 0) {
+            count = k / time;
+            if (k % time != 0) {
+                count++;
+            }
+        }
+
+        cout << count << "\n";
+    }
+
+    return 0;
 }
