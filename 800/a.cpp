@@ -1,30 +1,30 @@
 #include <iostream>
-#include <string>
+
 using namespace std;
 
-int main()
-{
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        string dash_underscore;
-        cin>>dash_underscore;
-        int dash = 0;
-        int underscore = 0;
-        for(char c : dash_underscore){
-            if (c=='-') dash++;
-            else if(c=='_') underscore++;
+int main() {
+    int n;
+    cin >> n;
+    
+    int k = (n * n + 1) / 2;  // Position of the middle element in the sorted list
+    
+    int low = 1, high = n * n, mid, count;
+    
+    while (low < high) {
+        mid = (low + high) / 2;
+        count = 0;
+        
+        // Count numbers <= mid in the multiplication table
+        for (int i = 1; i <= n; i++) {
+            count += min(mid / i, n);
         }
-        if(dash<2  ||  underscore<1){
-            cout<<endl;
-            continue;
-        }
-        int value = dash/2;
-        long long ans = value*underscore*(dash-value);
-        cout<<ans<<endl;
+        
+        if (count < k)
+            low = mid + 1;
+        else
+            high = mid;
     }
-
+    
+    cout << low << endl;
     return 0;
 }
