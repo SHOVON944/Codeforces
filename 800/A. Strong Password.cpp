@@ -6,13 +6,19 @@ int main()
     int t;
     cin>>t;
     while(t--){
-        string pass;
-        cin>>pass;
-        for(int i=1; i<pass.size(); i++){
-            if(pass[i]==pass[i-1]){
-                
+        string s;
+        cin>>s;
+        vector<string> pass;
+        pass.push_back(s);
+        for(int i=0; i<pass.size(); ){
+            if(pass[i]==pass[i+1]){
+                char nextChar = pass[i]+1;
+                pass.insert(pass.begin()+1, nextChar)
+                i++;
             }
+            i++;
         }
+        cout<<pass<<endl;
     }
 
     return 0;
