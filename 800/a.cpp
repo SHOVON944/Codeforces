@@ -1,26 +1,16 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-  int eye, mouth, body;
-  cin>>eye>>mouth>>body;
-  int store = 0;
-  int case1 = min(eye, min(mouth, body));
-  store = store + case1;
-  
-  if(body< eye  &&  body<mouth) cout<<body<<endl;
+int main() {
+    vector<int> v = {10, 20, 20, 20, 30, 30, 40, 50};
 
-  eye = eye - store*2;
-  mouth = mouth - store;
-  body = body - store;
+    int x = 20; // Search for 30
 
-  if(eye>1  &&  mouth>0){
-    store = store + min(eye/2, mouth);
-    eye = eye - (min(eye/2, mouth))/2;
-  }
+    auto lb = lower_bound(v.begin(), v.end(), x);
+    auto ub = upper_bound(v.begin(), v.end(), x);
 
-  cout<<store<<endl;
+    cout << "Lower Bound of " << x << " is at index: " << (lb - v.begin()) << endl;
+    cout << "Upper Bound of " << x << " is at index: " << (ub - v.begin()-1) << endl;
 
-  return 0;
+    return 0;
 }
