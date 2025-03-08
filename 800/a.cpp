@@ -11,6 +11,7 @@ int main() {
 
     cout << "Lower Bound of " << x << " is at index: " << (lb - v.begin()) << endl;
     cout << "Upper Bound of " << x << " is at index: " << (ub - v.begin()-1) << endl;
+    
 
     return 0;
 }
