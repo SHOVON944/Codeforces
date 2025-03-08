@@ -26,6 +26,7 @@ int main()
         }
         cout << eat_candies << endl;
     }
+    
 
     return 0;
 }
