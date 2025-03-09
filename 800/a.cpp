@@ -11,6 +11,9 @@ int main() {
 
     cout << "Lower Bound of " << x << " is at index: " << (lb - v.begin()) << endl;
     cout << "Upper Bound of " << x << " is at index: " << (ub - v.begin()-1) << endl;
+
+
+    int one = __gcd(4,5);
     
 
     return 0;
