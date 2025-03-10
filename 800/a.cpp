@@ -1,20 +1,32 @@
 #include <bits/stdc++.h>
-using namespace std;
 
 int main() {
-    vector<int> v = {10, 20, 20, 20, 30, 30, 40, 50};
 
-    int x = 20; // Search for 30
+    int t;
+    std::cin >> t;
 
-    auto lb = lower_bound(v.begin(), v.end(), x);
-    auto ub = upper_bound(v.begin(), v.end(), x);
+    while (t--) {
+        int n, k;
+        std::cin >> n >> k;
 
-    cout << "Lower Bound of " << x << " is at index: " << (lb - v.begin()) << endl;
-    cout << "Upper Bound of " << x << " is at index: " << (ub - v.begin()-1) << endl;
+        std::vector<int> a(n);
+        if (k % 2 == 1) {
+            for (int i = 0; i < n - 1; ++i) {
+                a[i] = i + 2;
+            }
+            a[n - 1] = n - 1;
+        } else {
+            for (int i = 0; i < n; ++i) {
+                a[i] = i + 1;
+            }
+            a[n - 1] = n - 1;
+        }
 
-
-    int one = __gcd(4,5);
-    
+        for (int i = 0; i < n; ++i) {
+            std::cout << a[i] << " ";
+        }
+        std::cout << "\n";
+    }
 
     return 0;
 }
