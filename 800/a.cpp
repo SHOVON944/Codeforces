@@ -1,32 +1,21 @@
-#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
 
 int main() {
-
     int t;
-    std::cin >> t;
-
+    cin >> t;
     while (t--) {
-        int n, k;
-        std::cin >> n >> k;
-
-        std::vector<int> a(n);
-        if (k % 2 == 1) {
-            for (int i = 0; i < n - 1; ++i) {
-                a[i] = i + 2;
+        int x;
+        cin >> x;
+        int found = -1;
+        for (int y = 1; y < x; ++y) {
+            int z = x ^ y;
+            if (z < x && y + x > z && x + z > y && y + z > x) {
+                found = y;
+                break;
             }
-            a[n - 1] = n - 1;
-        } else {
-            for (int i = 0; i < n; ++i) {
-                a[i] = i + 1;
-            }
-            a[n - 1] = n - 1;
         }
-
-        for (int i = 0; i < n; ++i) {
-            std::cout << a[i] << " ";
-        }
-        std::cout << "\n";
+        cout << found << "\n";
     }
-
     return 0;
 }

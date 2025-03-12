@@ -1,36 +1,19 @@
 #include<stdio.h>
-
 int main()
 {
-    int eye, mouth, body;
-    scanf("%d",&eye);
-    scanf("%d",&mouth);
-    scanf("%d",&body);
-    int count = 0;
-    while(1){
-        if(eye>0 && mouth>0 && body>0){
-        count++;
-        eye--;
-        mouth--;
-        body--;
-    }
-    else if(eye>1 && mouth>0 && body>0){
-        count++;
-        eye--;
-        mouth--;
-        body--;
-    }
-        if(eye>1  && body>0){
-        count++;
-        eye--;
-        mouth--;
-        body--;
-    }
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+     long long n,sum=0,total=0;
+     scanf("%lld",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+    scanf("%lld",&a[i]);
+    sum=sum+a[i];
 }
-
-    printf("%d",count);
-    
-
-
-    return 0;
+ total=sum-n+1;
+printf("%lld\n",total);
+}
 }
