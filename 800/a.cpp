@@ -1,33 +1,38 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
+
+// Function to compute the minimum value of x after n OPER 1 and m OPER 2
+long long computeMin(long long x, long long n, long long m) {
+    for (int i = 0; i < n; ++i) {
+        x = x / 2;
+    }
+    for (int i = 0; i < m; ++i) {
+        x = (x + 1) / 2;
+    }
+    return x;
+}
+
+// Function to compute the maximum value of x after n OPER 1 and m OPER 2
+long long computeMax(long long x, long long n, long long m) {
+    for (int i = 0; i < m; ++i) {
+        x = (x + 1) / 2;
+    }
+    for (int i = 0; i < n; ++i) {
+        x = x / 2;
+    }
+    return x;
+}
 
 int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
-        vector<int> value(n); // Vector ব্যবহার করা ভালো
-        cin >> value[0]; // প্রথম ইনপুট নেওয়া হলো
-        
-        if (n == 1) { // একমাত্র উপাদান থাকলে সবসময় "YES"
-            cout << "YES" << endl;
-            continue; // break এর বদলে continue
-        }
-
-        bool greaterOne = false;
-        for (int i = 1; i < n; i++) {
-            cin >> value[i];
-            if (abs(value[i] - value[i - 1]) > 1) {
-                greaterOne = true;
-            }
-        }
-
-        if (greaterOne)
-            cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
+        long long x, n, m;
+        cin >> x >> n >> m;
+        long long minVal = computeMin(x, n, m);
+        long long maxVal = computeMax(x, n, m);
+        cout << minVal << " " << maxVal << endl;
     }
-
     return 0;
 }
