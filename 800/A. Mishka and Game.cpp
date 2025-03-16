@@ -11,7 +11,7 @@ int main()
         int m, c;
         cin >> m>>c;
         if(m>c) mSum++;
-        else cSum++;
+        else if(m<c) cSum++;
     }
     if(mSum==cSum) cout << "Friendship is magic!^^" << endl;
     else if(mSum>cSum) cout << "Mishka" << endl;
