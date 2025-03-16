@@ -1,38 +1,43 @@
-#include <iostream>
-#include <cmath>
+#include<bits/stdc++.h>
 using namespace std;
 
-// Function to compute the minimum value of x after n OPER 1 and m OPER 2
-long long computeMin(long long x, long long n, long long m) {
-    for (int i = 0; i < n; ++i) {
-        x = x / 2;
-    }
-    for (int i = 0; i < m; ++i) {
-        x = (x + 1) / 2;
-    }
-    return x;
-}
 
-// Function to compute the maximum value of x after n OPER 1 and m OPER 2
-long long computeMax(long long x, long long n, long long m) {
-    for (int i = 0; i < m; ++i) {
-        x = (x + 1) / 2;
-    }
-    for (int i = 0; i < n; ++i) {
-        x = x / 2;
-    }
-    return x;
-}
 
 int main() {
-    int t;
+    int t, test = 0;
     cin >> t;
-    while (t--) {
-        long long x, n, m;
-        cin >> x >> n >> m;
-        long long minVal = computeMin(x, n, m);
-        long long maxVal = computeMax(x, n, m);
-        cout << minVal << " " << maxVal << endl;
+
+    while (test < t) {
+        test++;
+        int n, m;
+        cin >> n >> m;
+        int MAX_N = 100;
+        int MAX_M = 100;
+
+        vector<vector<int>> matrix(n, vector<int>(m));
+        vector<int> xorrow(n, 0);
+        vector<int> xorcolum(m, 0);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                char ch;
+                cin >> ch;
+                matrix[i][j] = ch - '0';
+                xorrow[i] ^= matrix[i][j];
+                xorcolum[j] ^= matrix[i][j];
+            }
+        }
+        int rows = 0, cols = 0;
+        for (int i = 0; i < n; i++) {
+            if (xorrow[i] != 0) rows++;
+        }
+        for (int j = 0; j < m; j++) {
+            if (xorcolum[j] != 0) cols++;
+        }
+
+
+        cout << max(rows, cols) << endl;
     }
+
     return 0;
 }
