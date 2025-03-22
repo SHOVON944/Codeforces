@@ -1,32 +1,42 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
-int main()
-{
-        int n;  cin>>n;
-        vector<int>arr(n), checker(n);
-        for(int i=0; i<n; i++){
-            cin>>arr[i];
-            checker[i] = arr[i];
-        }
-
-        sort(checker.begin(), checker.end());
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+        string s;
+        cin >> s;
         
-        if(arr == checker){
-            cout<<"yes"<<endl<<"1 1"<<endl;
-            return 0;
+        string reversed_s = s;
+        reverse(reversed_s.begin(), reversed_s.end());
+        
+        if (s < reversed_s) {
+            cout << "YES" << endl;
+            continue;
         }
-
-        int first_checker = 0;
-        int last_checker = n-1;
-        while(arr[first_checker]==checker[first_checker]) first_checker++;
-        while(arr[last_checker]==checker[last_checker]) last_checker--;
-
-        reverse(arr.begin()+first_checker, arr.begin()+last_checker+1);
-
-        if(arr == checker) cout<<"yes"<<endl<<first_checker+1<<" "<<last_checker+1<<endl;
-        else cout<<"no"<<endl;
-    
-
+        
+        int swaps = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            if (s[i] != s[n - 1 - i]) {
+                swap(s[i], s[n - 1 - i]);
+                swaps++;
+                if (swaps > k) {
+                    break;
+                }
+            }
+        }
+        
+        if (s < reversed_s && swaps <= k) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
     return 0;
 }
