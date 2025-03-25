@@ -1,42 +1,43 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
-
+#include <vector>
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int t;
     cin >> t;
+    
+    string target = "01032025";
+    
     while (t--) {
-        int n, k;
-        cin >> n >> k;
-        string s;
-        cin >> s;
+        int n;
+        cin >> n;
         
-        string reversed_s = s;
-        reverse(reversed_s.begin(), reversed_s.end());
-        
-        if (s < reversed_s) {
-            cout << "YES" << endl;
-            continue;
+        vector<char> digits(n);
+        for (int i = 0; i < n; i++) {
+            cin >> digits[i];
         }
         
-        int swaps = 0;
-        for (int i = 0; i < n / 2; ++i) {
-            if (s[i] != s[n - 1 - i]) {
-                swap(s[i], s[n - 1 - i]);
-                swaps++;
-                if (swaps > k) {
+        vector<char> needed(target.begin(), target.end());
+        
+        for (int i = 0; i < n; i++) {
+            for (auto it = needed.begin(); it != needed.end(); ++it) {
+                if (digits[i] == *it) {
+                    needed.erase(it);
                     break;
                 }
             }
+            if (needed.empty()) {
+                cout << i + 1 << "\n";
+                goto next_case;
+            }
         }
         
-        if (s < reversed_s && swaps <= k) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
-        }
+        cout << "0\n";
+    next_case:;
     }
+    
     return 0;
 }
