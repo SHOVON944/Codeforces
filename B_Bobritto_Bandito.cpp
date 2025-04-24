@@ -7,7 +7,7 @@ int main() {
     while (test--) {
         int n, m, l, r;
         cin >> n >> m >> l >> r;
-        
+
         int total_houses = r - l + 1;
         if (total_houses != n + 1) {
             cout << "0 0" << endl;
