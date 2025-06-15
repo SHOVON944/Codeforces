@@ -1,21 +1,41 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-int main()
-{
-    int t;   cin>>t;
-    while(t--){
-        int sizeN;   cin>>sizeN;
-        string num;   cin>>num;
-        int count_1 = 0;
-        int count_0 = 0;
-        for(char c : num){
-            if(c == '1') count_1++;
-            else count_0++;
-        }
-        if(count_1>count_0) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+void solve() {
+    int n;
+    string s;
+    cin >> n >> s;
+
+
+    int ones = 0;
+    int zero = 0;
+    for (char c : s) {
+        if (c == '1') ones++;
+        else zero++;
+    }
+    if (ones > zero) {
+        cout << "YES\n";
+        return;
     }
 
+    else {
+        cout << "NO\n";
+        return ;
+    }
+
+        if (n == 1) {
+        cout << (s[0] == '1' ? "YES\n" : "NO\n");
+        return;
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
     return 0;
 }
