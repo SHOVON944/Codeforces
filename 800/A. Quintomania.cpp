@@ -25,4 +25,6 @@ int main()
         if(check) cout<<"YES"<<endl;
         else cout<<"NO"<<endl;
     }
+
+    return 0;
 }
