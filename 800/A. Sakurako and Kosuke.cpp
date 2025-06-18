@@ -1,24 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main(){
     int t;
     cin>>t;
     while(t--){
         int n;
-        cin>>n;
-        int cordinate = 0;
-        for(int i=1; i<=n; i++){
+        cin >> n;
+        int count = 0;
+        int i = 1;
+        while(true){
             if(i%2!=0){
-                cordinate -= i;
-                if(cordinate>n || cordinate<-n) cout<<"Sakurako"<<endl;
+            	count -= (2*i -1);
+                if(abs(count)>n){
+                    cout << "Sakurako" << endl;
+                    break;
+                }
             } else{
-                cordinate += i;
-                if(cordinate>n || cordinate<-n) cout<<"Kosuke"<<endl;
+                count += (2*i-1);
+                if(abs(count)>n){
+                    cout << "Kosuke" << endl;
+                    break;
+                }
             }
+            i++;
         }
     }
-
+    
     return 0;
 }
