@@ -1,17 +1,26 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
+int main(){
     int t;
-    cin >> t;
+    cin >> t; 
     while (t--) {
-        int n, m, l, r;
-        cin >> n >> m >> l >> r;
-        // Length of segment on day m is m + 1
-        // Start from leftmost possible position
-        int l_prime = l;
-        int r_prime = l_prime + m;
-        cout << l_prime << " " << r_prime << endl;
+        int l1, b1, l2, b2, l3, b3;
+        cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
+        bool done = false;
+        if (l1 == l2 && l2 == l3) {
+            if (b1 + b2 + b3 == l1) {
+                done = true;
+            }
+        }
+
+        if (b1 == b2 && b2 == b3) {
+            if (l1 + l2 + l3 == b1) {
+                done = true;
+            }
+        }
+
+        cout << (done ? "YES" : "NO") << endl;
     }
+
     return 0;
 }
