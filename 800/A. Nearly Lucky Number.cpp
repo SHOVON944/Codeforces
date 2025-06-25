@@ -11,7 +11,7 @@ int main()
     string checking = to_string(sum);
     bool final = true;
     for(char ch : checking){
-        if(ch!='4'  ||  ch!='7'){
+        if(ch!='4'  &&  ch!='7'){
             cout<<"NO"<<endl;
             return 0;
         }
