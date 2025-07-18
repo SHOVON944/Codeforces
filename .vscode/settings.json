@@ -4,5 +4,9 @@
         "ostream": "cpp",
         "iomanip": "cpp",
         "numeric": "cpp"
-    }
+    },
+
+    "files.exclude":{
+        "**/*.class": true
+    },
 }
