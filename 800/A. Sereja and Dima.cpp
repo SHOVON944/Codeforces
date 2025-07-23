@@ -3,24 +3,34 @@ using namespace std;
 
 int main()
 {
-    int n;   cin>>n;
+    int n;
+    cin>>n;
     vector<int>num(n);
-    for(int i=0; i<n; i++)   cin>>num[i];
-    sort(num.begin(), num.end());
-    int sum1 = 0;
-    int sum2 = 0;
-    bool alter = true;
-    for(int i=n-1; i>=0; i++){
-        if(alter){
-            sum1 += num[i];
-            alter = false;
+    for(int i=0; i<n; i++) cin>>num[i];
+    int sreja = 0;
+    int dima = 0;
+    int checker = 1;
+    for(int i=n-1; i>=0; i--){
+        if(checker%2!=0){
+            if(num[i]>=num[0]){
+                sreja += num[i];
+                num.pop_back();
+            } else{
+                sreja += num[0];
+                num.erase(num.begin());
+            }
+        } else{
+            if(num[i]>=num[0]){
+                dima += num[i];
+                num.pop_back();
+            } else{
+                dima += num[0];
+                num.erase(num.begin());
+            }
         }
-        if(!alter){
-            sum2 += num[i];
-            alter = true;
-        }
+        checker++;
     }
-    cout<<sum1<<" "<<sum2<<endl;
+    cout<<sreja<<" "<<dima<<endl;
 
     return 0;
 }
