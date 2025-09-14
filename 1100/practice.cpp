@@ -1,55 +1,19 @@
-#include <iostream>
-#include <string>
+import java.util.*
 
-using namespace std;
+fun main() {
+    val scanner = Scanner(System.`in`)
+    val t = scanner.nextInt()
+    repeat(t) {
+        val n = scanner.nextInt()
+        val a = IntArray(n) { scanner.nextInt() }
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+        val c = if (a[0] == a[1] || a[0] == a[2]) a[0] else a[1]
 
-    int t;
-    cin >> t;
-
-    while (t--) {
-        int n, x;
-        long long k;
-        cin >> n >> x >> k;
-        string s;
-        cin >> s;
-
-        long long count = 0;
-        int pos = x;
-        long long time = 0;
-
-        while (time < k) {
-            if (pos == 0) {
-                count++;
-                break;
-            }
-
-            if (time % n == 0 && time != 0) {
-                break;
-            }
-
-            char cmd = s[time % n];
-            if (cmd == 'L') {
-                pos--;
-            } else if (cmd == 'R') {
-                pos++;
-            }
-
-            time++;
-        }
-
-        if (pos == 0) {
-            count = k / time;
-            if (k % time != 0) {
-                count++;
+        for (i in a.indices) {
+            if (a[i] != c) {
+                println(i + 1)
+                break
             }
         }
-
-        cout << count << "\n";
     }
-
-    return 0;
 }
