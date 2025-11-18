@@ -14,7 +14,7 @@ int main()
 
     int round = 0;
     for(int i=0 ; i<n; i++){
-        round = ceil(children[i]/a);
+        round = ((children[i] + a - 1 ) / a); // ceil(children[i]/a)
         if(round>=maxRound){
             maxRound = round;
             lastChild = i +1;
