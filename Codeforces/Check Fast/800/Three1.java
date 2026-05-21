@@ -30,7 +30,7 @@ class Rectangle extends Shape{
 }
 
 
-public class Three{
+public class Three1{
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter the length of the triangle: ");
